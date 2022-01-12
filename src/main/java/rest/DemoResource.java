@@ -18,7 +18,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 
 import facades.UserFacade;
-import org.eclipse.persistence.annotations.CompositeMember;
 import utils.EMF_Creator;
 import utils.HttpUtils;
 
