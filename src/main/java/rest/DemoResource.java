@@ -22,6 +22,8 @@ import org.eclipse.persistence.annotations.CompositeMember;
 import utils.EMF_Creator;
 import utils.HttpUtils;
 
+import static utils.SetupTestUsers.setupUsers;
+
 @Path("info")
 public class DemoResource {
     
@@ -127,5 +129,12 @@ public class DemoResource {
         UserDTO userDTO = facade.deleteUser(name);
 
         return "Deleted user " + gson.toJson(userDTO);
+    }
+
+    @GET
+    @Path("createusers")
+    public String setupusers(){
+        setupUsers();
+        return "Users created";
     }
 }
