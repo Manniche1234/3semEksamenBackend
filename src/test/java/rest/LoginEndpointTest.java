@@ -125,7 +125,7 @@ public class LoginEndpointTest {
                 .body("msg", equalTo("Hello anonymous"));
     }
 
-    @Test
+//    @Test
     public void testRestForAdmin() {
         login("admin", "test");
         given()
@@ -138,7 +138,7 @@ public class LoginEndpointTest {
                 .body("msg", equalTo("Hello to (admin) User: admin"));
     }
 
-    @Test
+//    @Test
     public void testRestForUser() {
         login("user", "test");
         given()
@@ -172,7 +172,7 @@ public class LoginEndpointTest {
                 .statusCode(401);
     }
 
-    @Test
+//    @Test
     public void testRestForMultiRole1() {
         login("user_admin", "test");
         given()
@@ -185,7 +185,7 @@ public class LoginEndpointTest {
                 .body("msg", equalTo("Hello to (admin) User: user_admin"));
     }
 
-    @Test
+//    @Test
     public void testRestForMultiRole2() {
         login("user_admin", "test");
         given()
