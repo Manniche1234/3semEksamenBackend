@@ -131,7 +131,7 @@ public class DemoResource {
     }
 
     @GET
-    @Path("createusers")
+    @Path("createuser")
     public String setupusers(){
         setupUsers();
         return "Users created";
