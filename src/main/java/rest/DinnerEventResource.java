@@ -48,7 +48,7 @@ public class DinnerEventResource {
         return gson.toJson(dinnerEventDTO1);
     }
 
-    @POST
+    @PUT
     @Path("updateevent")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
