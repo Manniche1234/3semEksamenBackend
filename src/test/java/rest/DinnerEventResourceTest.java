@@ -215,6 +215,7 @@ class DinnerEventResourceTest {
                 .extract().body().jsonPath().getObject("", DinnerEventDTO.class);
 
         assertNotNull(dinnerEventDTO);
+        assertEquals(dinnerEventDTO.getId(), 3);
 
         List<DinnerEventDTO> dinnerEventDTOList;
         dinnerEventDTOList = given()

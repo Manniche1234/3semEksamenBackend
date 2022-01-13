@@ -138,9 +138,10 @@ class DinnerFacadeTest {
     @Test
     void deleteEvent() {
         Long id = new Long(3);
-        DinnerEventDTO dinnerEventDTO = facade.deleteEvent(id);
 
+        DinnerEventDTO dinnerEventDTO = facade.deleteEvent(id);
         assertNotNull(dinnerEventDTO);
+        assertEquals(dinnerEventDTO.getId(), 3);
 
         List<DinnerEventDTO> dinnerEventDTOList = facade.getAllEvents();
 
