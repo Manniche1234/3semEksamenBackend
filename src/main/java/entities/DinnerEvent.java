@@ -31,7 +31,7 @@ public class DinnerEvent {
         this.location = dinnerEventDTO.getLocation();
         this.dish = dinnerEventDTO.getDish();
         this.pricePrPerson = dinnerEventDTO.getPricePrPerson();
-        this.date = dinnerEventDTO.getDate();
+        this.date = new Date();
     }
 
     public DinnerEvent(String location, String dish, int pricePrPerson) {

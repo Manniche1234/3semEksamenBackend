@@ -26,7 +26,6 @@ public class DinnerEventDTO {
         this.location = location;
         this.dish = dish;
         this.pricePrPerson = pricePrPerson;
-        this.date = new Date();
     }
 
     public DinnerEventDTO(DinnerEvent dinnerEvent) {
