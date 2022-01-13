@@ -140,7 +140,7 @@ class DinnerFacadeTest {
         Long id = new Long(3);
         DinnerEventDTO dinnerEventDTO = facade.deleteEvent(id);
 
-        assertEquals(dinnerEventDTO.getLocation(), "Kofoeds");
+        assertNotNull(dinnerEventDTO);
 
         List<DinnerEventDTO> dinnerEventDTOList = facade.getAllEvents();
 

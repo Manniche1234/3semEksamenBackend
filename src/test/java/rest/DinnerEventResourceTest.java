@@ -214,7 +214,7 @@ class DinnerEventResourceTest {
                 .then().statusCode(200)
                 .extract().body().jsonPath().getObject("", DinnerEventDTO.class);
 
-        assertEquals(dinnerEventDTO.getLocation(), "Hvor? Her");
+        assertNotNull(dinnerEventDTO);
 
         List<DinnerEventDTO> dinnerEventDTOList;
         dinnerEventDTOList = given()
