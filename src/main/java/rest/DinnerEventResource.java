@@ -57,6 +57,12 @@ public class DinnerEventResource {
         DinnerEventDTO dinnerEventDTO = gson.fromJson(DTO, DinnerEventDTO.class);
         DinnerEventDTO dinnerEventDTO1 = facade.updateEvent(dinnerEventDTO);
         return gson.toJson(dinnerEventDTO1);
-
+    }
+    @DELETE
+    @Path("deleteevent/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("admin")
+    public String deleteEvent(@PathParam("id") Long id){
+        return gson.toJson(facade.deleteEvent(id));
     }
 }

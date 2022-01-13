@@ -20,7 +20,7 @@ public class DinnerEvent {
     private String location;
     private String dish;
     private int pricePrPerson;
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "dinnerEvent")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dinnerEvent")
     private List<Assignment> assignmentList;
 
 
