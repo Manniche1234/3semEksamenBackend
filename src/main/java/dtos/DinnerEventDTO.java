@@ -22,6 +22,14 @@ public class DinnerEventDTO {
         return dinnerDTOSdtos;
     }
 
+    public DinnerEventDTO(Long id, Date date, String location, String dish, int pricePrPerson) {
+        this.id = id;
+        this.date = date;
+        this.location = location;
+        this.dish = dish;
+        this.pricePrPerson = pricePrPerson;
+    }
+
     public DinnerEventDTO(String location, String dish, int pricePrPerson) {
         this.location = location;
         this.dish = dish;
