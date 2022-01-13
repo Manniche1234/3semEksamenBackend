@@ -46,7 +46,7 @@ public class SetupTestUsers {
 
     dinnerEvent.addAssignment(assignment);
 
-    dinnerEvent2.addAssignment(assignment);
+    dinnerEvent1.addAssignment(assignment1);
 
     dinnerEvent2.addAssignment(assignment2);
 
