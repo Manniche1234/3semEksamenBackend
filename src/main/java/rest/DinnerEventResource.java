@@ -12,7 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.util.List;
 
-@Path("/events")
+@Path("/event")
 public class DinnerEventResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
