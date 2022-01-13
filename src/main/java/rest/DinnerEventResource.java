@@ -40,7 +40,7 @@ public class DinnerEventResource {
     @Path("createevent")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-//    @RolesAllowed("admin")
+    @RolesAllowed("admin")
     public String createEvent(String DTO){
         DinnerEventDTO dinnerEventDTO = gson.fromJson(DTO, DinnerEventDTO.class);
         DinnerEventDTO dinnerEventDTO1 = facade.createNewEvent(dinnerEventDTO);
