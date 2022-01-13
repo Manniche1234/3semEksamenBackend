@@ -1,6 +1,7 @@
 package utils;
 
 
+import entities.Assignment;
 import entities.DinnerEvent;
 import entities.Role;
 import entities.User;
@@ -25,19 +26,39 @@ public class SetupTestUsers {
     // Also, either delete this file, when users are created or rename and add to .gitignore
     // Whatever you do DO NOT COMMIT and PUSH with the real passwords
 
-    User user = new User("user", "user1","masnedøgade","23415701","hajmeddig@gmail.com","1993",50000);
-    User admin = new User("admin", "admin1","Hejeje","3211232","yoyoyo@hotmail.com","1932",321123);
-    User both = new User("user_admin", "user_admin1","asdasdas","32112332","jasda@gmail.com","2000",32112);
     DinnerEvent dinnerEvent = new DinnerEvent("gorms","fish",150);
     DinnerEvent dinnerEvent1 = new DinnerEvent("Kofoeds","Kød",200);
     DinnerEvent dinnerEvent2 = new DinnerEvent("Augusts","Guld belagt Hummer",1000);
     DinnerEvent dinnerEvent3 = new DinnerEvent("Hvor? Her","Vegansk",175);
+    Assignment assignment = new Assignment("Møller","23415701");
+    Assignment assignment1 = new Assignment("Pøller","321123");
+    Assignment assignment2 = new Assignment("Støller","654456");
+
+    User user = new User("user", "user1","masnedøgade","23415701","hajmeddig@gmail.com","1993",50000);
+    User user1 = new User("user1", "user11","asdsad","23415701","asdasd@gmail.com","1992",50000);
+    User admin = new User("admin", "admin1","Hejeje","3211232","yoyoyo@hotmail.com","1932",321123);
+    User both = new User("user_admin", "user_admin1","asdasdas","32112332","jasda@gmail.com","2000",32112);
+
+    user1.addAssignment(assignment1);
+    user.addAssignment(assignment);
+    user.addAssignment(assignment1);
+    user.addAssignment(assignment2);
+
+    dinnerEvent.addAssignment(assignment);
+
+    dinnerEvent2.addAssignment(assignment);
+
+    dinnerEvent2.addAssignment(assignment2);
+
+
     if(admin.getPassword().equals("test")||user.getPassword().equals("test")||both.getPassword().equals("test"))
       throw new UnsupportedOperationException("You have not changed the passwords");
 
     em.getTransaction().begin();
     Role userRole = new Role("user");
     Role adminRole = new Role("admin");
+
+
     user.addRole(userRole);
     admin.addRole(adminRole);
     both.addRole(userRole);
@@ -48,6 +69,7 @@ public class SetupTestUsers {
     em.persist(dinnerEvent3);
     em.persist(userRole);
     em.persist(adminRole);
+    em.persist(user1);
     em.persist(user);
     em.persist(admin);
     em.persist(both);

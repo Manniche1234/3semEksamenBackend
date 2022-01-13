@@ -25,8 +25,6 @@ public class DinnerFacade {
         return instance;
     }
 
-
-
     public List<DinnerEventDTO> getAllEvents (){
         EntityManager em = emf.createEntityManager();
         try{
@@ -37,6 +35,20 @@ public class DinnerFacade {
         }finally {
             em.close();
         }
+    }
+
+    public DinnerEventDTO createNewEvent(DinnerEventDTO dinnerEventDTO){
+        EntityManager em = emf.createEntityManager();
+        DinnerEvent dinnerEvent = new DinnerEvent(dinnerEventDTO);
+
+        try{
+            em.getTransaction().begin();
+            em.persist(dinnerEvent);
+            em.getTransaction().commit();
+        }finally {
+            em.close();
+        }
+        return new DinnerEventDTO(dinnerEvent);
     }
 
 

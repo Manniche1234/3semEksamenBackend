@@ -4,7 +4,9 @@ import dtos.DinnerEventDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "dinner_event")
 @Entity
@@ -18,6 +20,8 @@ public class DinnerEvent {
     private String location;
     private String dish;
     private int pricePrPerson;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "dinnerEvent")
+    private List<Assignment> assignmentList;
 
 
     public DinnerEvent() {
@@ -27,13 +31,14 @@ public class DinnerEvent {
         this.location = dinnerEventDTO.getLocation();
         this.dish = dinnerEventDTO.getDish();
         this.pricePrPerson = dinnerEventDTO.getPricePrPerson();
-        this.date = new Date();
+        this.date = dinnerEventDTO.getDate();
     }
 
     public DinnerEvent(String location, String dish, int pricePrPerson) {
         this.location = location;
         this.dish = dish;
         this.pricePrPerson = pricePrPerson;
+        this.assignmentList = new ArrayList<>();
         this.date = new Date();
     }
 
@@ -75,5 +80,20 @@ public class DinnerEvent {
 
     public void setPricePrPerson(int pricePrPerson) {
         this.pricePrPerson = pricePrPerson;
+    }
+
+    public List<Assignment> getAssignmentList() {
+        return assignmentList;
+    }
+
+    public void setAssignmentList(List<Assignment> assignmentList) {
+        this.assignmentList = assignmentList;
+    }
+
+    public void addAssignment(Assignment a){
+        if(a != null){
+            a.setDinnerEvent(this);
+            this.assignmentList.add(a);
+        }
     }
 }

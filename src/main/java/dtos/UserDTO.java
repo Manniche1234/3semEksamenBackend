@@ -1,5 +1,6 @@
 package dtos;
 
+import entities.Assignment;
 import entities.User;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class UserDTO {
     private String email;
     private String birthYear;
     private int account;
+    private List<AssignmentDTO> assignments;
 
 
     public static List<UserDTO> getDtos(List<User> u){
@@ -86,5 +88,13 @@ public class UserDTO {
 
     public void setAccount(int account) {
         this.account = account;
+    }
+
+    public List<AssignmentDTO> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(List<AssignmentDTO> assignments) {
+        this.assignments = assignments;
     }
 }

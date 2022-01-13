@@ -7,6 +7,7 @@ import facades.DinnerFacade;
 import facades.UserFacade;
 import utils.EMF_Creator;
 
+import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
@@ -33,5 +34,17 @@ public class DinnerEventResource {
         List<DinnerEventDTO> dinnerEventDTOList = facade.getAllEvents();
 
         return gson.toJson(dinnerEventDTOList);
+    }
+
+    @POST
+    @Path("createevent")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+//    @RolesAllowed("admin")
+    public String createEvent(String DTO){
+        DinnerEventDTO dinnerEventDTO = gson.fromJson(DTO, DinnerEventDTO.class);
+        DinnerEventDTO dinnerEventDTO1 = facade.createNewEvent(dinnerEventDTO);
+
+        return gson.toJson(dinnerEventDTO1);
     }
 }
