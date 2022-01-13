@@ -47,4 +47,16 @@ public class DinnerEventResource {
 
         return gson.toJson(dinnerEventDTO1);
     }
+
+    @POST
+    @Path("updateevent")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("admin")
+    public String updateEvent(String DTO){
+        DinnerEventDTO dinnerEventDTO = gson.fromJson(DTO, DinnerEventDTO.class);
+        DinnerEventDTO dinnerEventDTO1 = facade.updateEvent(dinnerEventDTO);
+        return gson.toJson(dinnerEventDTO1);
+
+    }
 }
