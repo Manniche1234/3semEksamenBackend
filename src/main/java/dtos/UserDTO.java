@@ -9,6 +9,11 @@ public class UserDTO {
 
     private String username;
     private String password;
+    private String address;
+    private String phone;
+    private String email;
+    private String birthYear;
+    private int account;
 
 
     public static List<UserDTO> getDtos(List<User> u){
@@ -19,8 +24,12 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.username = user.getUsername();
+        this.address = user.getAddress();
+        this.phone = user.getPhone();
+        this.email = user.getEmail();
+        this.birthYear = user.getBirthYear();
+        this.account = user.getAccount();
     }
-
 
 
     public String getUsername() {
@@ -39,7 +48,43 @@ public class UserDTO {
         this.password = password;
     }
 
+    public String getAddress() {
+        return address;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
+    public String getPhone() {
+        return phone;
+    }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBirthYear() {
+        return birthYear;
+    }
+
+    public void setBirthYear(String birthYear) {
+        this.birthYear = birthYear;
+    }
+
+    public int getAccount() {
+        return account;
+    }
+
+    public void setAccount(int account) {
+        this.account = account;
+    }
 }

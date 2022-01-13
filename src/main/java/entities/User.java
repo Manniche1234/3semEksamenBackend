@@ -37,6 +37,13 @@ public class User implements Serializable {
     @JoinColumn(name = "role_name", referencedColumnName = "role_name")})
   @ManyToMany
   private List<Role> roleList = new ArrayList<>();
+  private String address;
+  private String phone;
+  private String email;
+  private String birthYear;
+  private int account;
+
+
 
   public List<String> getRolesAsStrings() {
     if (roleList.isEmpty()) {
@@ -54,6 +61,11 @@ public class User implements Serializable {
   public User(UserDTO userDTO) {
     this.username = userDTO.getUsername();
     this.password = BCrypt.hashpw(userDTO.getPassword(),BCrypt.gensalt());
+    this.address = userDTO.getAddress();
+    this.phone = userDTO.getPhone();
+    this.email = userDTO.getEmail();
+    this.birthYear = userDTO.getBirthYear();
+    this.account = userDTO.getAccount();
   }
 
   //TODO Change when password is hashed
@@ -61,10 +73,14 @@ public class User implements Serializable {
         return BCrypt.checkpw(pw,this.password);
     }
 
-  public User(String username, String password) {
+  public User(String username, String password, String address, String phone, String email, String birthYear, int account) {
     this.username = username;
-
     this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+    this.address = address;
+    this.phone = phone;
+    this.email = email;
+    this.birthYear = birthYear;
+    this.account = account;
   }
 
 
@@ -90,6 +106,46 @@ public class User implements Serializable {
 
   public void setRoleList(List<Role> roleList) {
     this.roleList = roleList;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getBirthYear() {
+    return birthYear;
+  }
+
+  public void setBirthYear(String birthYear) {
+    this.birthYear = birthYear;
+  }
+
+  public int getAccount() {
+    return account;
+  }
+
+  public void setAccount(int account) {
+    this.account = account;
   }
 
   public void addRole(Role userRole) {
