@@ -83,5 +83,14 @@ public class DinnerFacade {
         }
     }
 
+    public DinnerEventDTO getSingleEvent(Long id){
+        EntityManager em = emf.createEntityManager();
+        try{
+            DinnerEvent dinnerEvent = em.find(DinnerEvent.class,id);
+            return new DinnerEventDTO(dinnerEvent);
+        }finally {
+            em.close();
+        }
+    }
 
 }

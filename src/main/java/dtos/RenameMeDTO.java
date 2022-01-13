@@ -57,10 +57,6 @@ public class RenameMeDTO {
     public String toString() {
         return "RenameMeDTO{" + "id=" + id + ", str1=" + str1 + ", str2=" + str2 + '}';
     }
-    
-    
-    
-    
-    
+
     
 }

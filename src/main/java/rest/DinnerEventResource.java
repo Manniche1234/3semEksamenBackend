@@ -58,11 +58,20 @@ public class DinnerEventResource {
         DinnerEventDTO dinnerEventDTO1 = facade.updateEvent(dinnerEventDTO);
         return gson.toJson(dinnerEventDTO1);
     }
+
     @DELETE
     @Path("deleteevent/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed("admin")
     public String deleteEvent(@PathParam("id") Long id){
         return gson.toJson(facade.deleteEvent(id));
+    }
+
+    @GET
+    @Path("getevent/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("admin")
+    public String getSingleEvent(@PathParam("id") Long id){
+        return gson.toJson(facade.getSingleEvent(id));
     }
 }
